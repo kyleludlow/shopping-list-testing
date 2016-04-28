@@ -80,11 +80,15 @@ describe('Shopping List', function () {
                 should.equal(err, null);
                 res.should.have.status(201);
                 res.should.be.json;
+                storage.items[1].name.should.equal('monads');
+                storage.items[1].id.should.equal(2);
                 res.body.should.be.a('array');
                 storage.items.should.have.length(3);
                 done();
             });
+        // });
     });
+
 
 
     it('should add an item on post');
