@@ -36,7 +36,6 @@ var storage = new Storage();
 storage.add('Broad beans');
 storage.add('Tomatoes');
 storage.add('Peppers');
-storage.add('Cologne');
 
 
 var app = express();
@@ -76,4 +75,10 @@ app.put('/items/:id', jsonParser, function (req, res) {
 
 });
 
+
+exports.app = app;
+exports.storage = storage;
+
 app.listen(process.env.PORT || 8080);
+
+
