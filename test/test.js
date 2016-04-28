@@ -75,7 +75,7 @@ describe('Shopping List', function () {
     it('should modify an item from storage', function(done) {
         chai.request(app)
             .put('/items/2')
-            .send({'name': 'monads', 'id': '2'})
+            .send({name: 'monads', id: 2})
             .end(function(err, res) {
                 should.equal(err, null);
                 res.should.have.status(201);

@@ -72,7 +72,7 @@ app.put('/items/:id', jsonParser, function (req, res) {
     } else {
         res.status(201).json(storage.items);
     }
-
+    console.log(storage.items);
 });
 
 
@@ -80,5 +80,3 @@ exports.app = app;
 exports.storage = storage;
 
 app.listen(process.env.PORT || 8080);
-
-
