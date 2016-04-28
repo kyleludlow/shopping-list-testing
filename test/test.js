@@ -74,17 +74,24 @@ describe('Shopping List', function () {
 
     it('should modify an item from storage', function(done) {
         chai.request(app)
+        // .get('/items')
+        // .end(function(error, response){
+        //     chai.request(app)
             .put('/items/2')
-            .send({'name': 'monads', 'id': '2'})
+            .send({'name': 'monads', 'id': 2})
             .end(function(err, res) {
                 should.equal(err, null);
                 res.should.have.status(201);
                 res.should.be.json;
+                storage.items[1].name.should.equal('monads');
+                storage.items[1].id.should.equal(2);
                 res.body.should.be.a('array');
                 storage.items.should.have.length(3);
                 done();
             });
+        // });
     });
+
 
 
     it('should add an item on post');
